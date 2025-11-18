@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東京ディズニーシー おすすめガイド</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro', 'Yu Gothic', YuGothic, Meiryo, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+        }
+        
+        .area-group {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .area-name {
+            font-size: 1.4em;
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: #f1f3f5;
+        }
+        
+        .restaurant-name {
+            font-weight: bold;
+            color: #2a5298;
+            font-size: 1.1em;
+        }
+        
+        .feature-tag {
+            display: inline-block;
+            background: #e7f3ff;
+            color: #1e3c72;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+        
+        .snack-table {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .snack-table th {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+        }
+        
+        .location {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .attraction-table {
+            background: white;
+        }
+        
+        .attraction-table th {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .pass-info {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .wait-time {
+            font-size: 1.2em;
+            color: #ff6b6b;
+        }
+        
+        .wait-stars {
+            color: #ffd700;
+            font-size: 1em;
+            display: block;
+            margin-top: 3px;
+        }
+        
+        .wait-level-1 { color: #51cf66; }
+        .wait-level-2 { color: #94d82d; }
+        .wait-level-3 { color: #ffd43b; }
+        .wait-level-4 { color: #ff922b; }
+        .wait-level-5 { color: #ff6b6b; }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .note strong {
+            color: #856404;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            tr:hover {
+                background: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏰 東京ディズニーシー おすすめガイド</h1>
+            <p>気軽に楽しめるレストラン・軽食・アトラクション完全ガイド</p>
+        </header>
+        
+        <div class="content">
+            <!-- レストランセクション -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🍽️</span>
+                    座って食べられるレストラン（屋内・モバイルオーダー対応）
+                </h2>
+                
+                <div class="area-group">
+                    <div class="area-name">🌊 アメリカンウォーターフロント</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">レストラン名</th>
+                                <th style="width: 75%;">特徴・メニュー</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="restaurant-name">ドックサイドダイナー</div></td>
+                                <td>
+                                    <div>がっつり系、肉・ポテト中心のメニュー</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🍔 バーガー</span>
+                                        <span class="feature-tag">🍗 チキン</span>
+                                        <span class="feature-tag">🍟 ポテト</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="restaurant-name">ニューヨークデリ</div></td>
+                                <td>
+                                    <div>サンドウィッチ中心、軽食にぴったり</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🥪 サンドウィッチ</span>
+                                        <span class="feature-tag">🍟 サイドメニュー</span>
+                                        <span class="feature-tag">🥤 ドリンク</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">🏛️ メディテレーニアンハーバー</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">レストラン名</th>
+                                <th style="width: 75%;">特徴・メニュー</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="restaurant-name">ザンビーニ・ブラザーズ・リストランテ</div></td>
+                                <td>
+                                    <div>イタリアン系の本格料理</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🍝 パスタ</span>
+                                        <span class="feature-tag">🍕 ピッツァ</span>
+                                        <span class="feature-tag">🥗 サラダ</span>
+                                        <span class="feature-tag">🍷 アルコール</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">🌋 ミステリアスアイランド</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">レストラン名</th>
+                                <th style="width: 75%;">特徴・メニュー</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="restaurant-name">ヴォルケイニア・レストラン</div></td>
+                                <td>
+                                    <div>中華系の料理、屋内で温かい汁系も！</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🍜 中華料理</span>
+                                        <span class="feature-tag">🔥 温かい料理</span>
+                                        <span class="feature-tag">🥘 汁系</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">🧜‍♀️ マーメイドラグーン</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">レストラン名</th>
+                                <th style="width: 75%;">特徴・メニュー</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="restaurant-name">セバスチャンのカリプソキッチン</div></td>
+                                <td>
+                                    <div>軽食・フライド系、休憩に最適</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🍤 ポップコーンシュリンプ</span>
+                                        <span class="feature-tag">🍟 フライドポテト</span>
+                                        <span class="feature-tag">☕ 休憩向け</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">🗿 ロストリバーデルタ</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">レストラン名</th>
+                                <th style="width: 75%;">特徴・メニュー</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="restaurant-name">ミゲルズ・エルドラド・キャンティーナ</div></td>
+                                <td>
+                                    <div>メキシカン風の軽昼食</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🌮 メキシカン</span>
+                                        <span class="feature-tag">🥪 サンド系</span>
+                                        <span class="feature-tag">☕ 軽昼食</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="restaurant-name">ユカタン・ベースキャンプ・グリル</div></td>
+                                <td>
+                                    <div>がっつり系、しっかり食べられる</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🍖 肉料理</span>
+                                        <span class="feature-tag">🍚 米</span>
+                                        <span class="feature-tag">🍛 カレー</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">✨ ファンタジースプリングス</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">レストラン名</th>
+                                <th style="width: 75%;">特徴・メニュー</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="restaurant-name">スナグリーダックリング</div></td>
+                                <td>
+                                    <div>気軽に入れるハンバーガーレストラン（ラプンツェルエリア）</div>
+                                    <div style="margin-top: 5px;">
+                                        <span class="feature-tag">🍔 ハンバーガー</span>
+                                        <span class="feature-tag">🪑 座席あり</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 軽食セクション -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🍗</span>
+                    気軽に食べられる軽食・スナック
+                </h2>
+                
+                <table class="snack-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">メニュー</th>
+                            <th style="width: 35%;">販売店舗</th>
+                            <th style="width: 35%;">場所・エリア</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>🍗 スパイシーチキンレッグ</strong></td>
+                            <td>ロストリバークックハウス</td>
+                            <td>インディとレイジングスピリッツの間</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🦃 スモークターキーレッグ</strong></td>
+                            <td>リフレスコス</td>
+                            <td>火山の麓にある城みたいなところ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🥟 餃子ドッグ</strong></td>
+                            <td>
+                                • ノーチラスギャレー<br>
+                                • ユカタン・ベースキャンプ・グリル<br>
+                                • シーサイドスナック
+                            </td>
+                            <td>
+                                • 海底2万マイル近く<br>
+                                • インディからレイジングに向かう近く<br>
+                                • アクアトピアの近く
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="area-group" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-left-color: #ff8e53;">
+                    <div class="area-name">🎯 ミッキーチュロス</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 30%;">味</th>
+                                <th style="width: 70%;">販売場所</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>シナモン味</strong></td>
+                                <td>ハイタイドトリート（火山の外周、電車の線路沿い、ケープコッドの裏）</td>
+                            </tr>
+                            <tr>
+                                <td><strong>クリームブリュレ味</strong></td>
+                                <td>ベイサイドテイクアウト（ホライズンベイの横、ニモやアクアトピアの前）</td>
+                            </tr>
+                            <tr>
+                                <td><strong>チョコ味</strong></td>
+                                <td>ザンビーニ、ドックサイドダイナー、ハドソンリバーハーベスト、オープンセサミ、サルタンズオアシス、アレンデールロイヤルバンケット、ルックアウト</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="note">
+                    <strong>🍿 ポップコーン情報</strong><br>
+                    ポップコーンの味と販売場所は<a href="https://www.tokyodisneyresort.jp/tds/food/popcorn/" target="_blank" style="color: #856404; font-weight: bold;">【公式】ポップコーン 味から探す</a>から確認できます！
+                </div>
+                
+                <div class="area-group" style="background: #fff8e1; border-left-color: #ff6f00;">
+                    <div class="area-name">☕ 温かい飲み物</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%;">メニュー</th>
+                                <th style="width: 65%;">販売店舗・エリア</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>コーヒー・カフェラテ</strong></td>
+                                <td>ゴンドリエスナック（メディテレーニアンハーバー）</td>
+                            </tr>
+                            <tr>
+                                <td><strong>期間限定ホットチョコ&ストロベリー</strong></td>
+                                <td>サルタンズオアシス（アラビアンコースト）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- お土産セクション -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🎁</span>
+                    お土産購入おすすめスポット
+                </h2>
+                
+                <div class="area-group">
+                    <div class="area-name">🏛️ メディテレーニアンハーバー</div>
+                    <div class="note" style="background: #e7f3ff; border-left-color: #2a5298;">
+                        <strong>📍 マップで位置を確認</strong><br>
+                        お店が多いエリアのため、下記のマップ画像の番号を参考にしてください
+                    </div>
+                    
+                    <div style="text-align: center; margin: 20px 0; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border: 2px dashed #dee2e6;">
+                            <p style="color: #6c757d; margin: 0;">📍 メディテレーニアンハーバー マップ</p>
+                            <p style="color: #adb5bd; font-size: 0.9em; margin-top: 5px;">※マップ画像①（番号①〜⑦が表示されています）</p>
+                        </div>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">マップ番号</th>
+                                <th style="width: 80%;">取扱商品</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>①、⑤</strong></td>
+                                <td>
+                                    <span class="feature-tag">🍪 お菓子</span>
+                                    <span class="feature-tag">🎁 定番お土産</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>②</strong></td>
+                                <td>
+                                    <span class="feature-tag">🔑 キーホルダー</span>
+                                    <span class="feature-tag">✨ 小物グッズ</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>③</strong></td>
+                                <td>
+                                    <span class="feature-tag">🧸 ダッフィーシリーズ</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>④</strong></td>
+                                <td>
+                                    <span class="feature-tag">👑 カチューシャ</span>
+                                    <span class="feature-tag">👕 アパレル</span>
+                                    <span class="feature-tag">💍 身につけグッズ</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>⑥、⑦</strong></td>
+                                <td>
+                                    <span class="feature-tag">🍽️ キッチン用品</span>
+                                    <span class="feature-tag">🏠 ホームグッズ</span>
+                                    <span class="feature-tag">🖼️ インテリア</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">🌊 アメリカンウォーターフロント</div>
+                    <div class="note" style="background: #e7f3ff; border-left-color: #2a5298;">
+                        <strong>📍 マップで位置を確認</strong><br>
+                        下記のマップ画像の番号を参考にしてください
+                    </div>
+                    
+                    <div style="text-align: center; margin: 20px 0; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAATABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCAwQF/8QAJBAAAgEEAQQCAwAAAAAAAAAAAQIDAAQRBRIhMUETIhRRYXH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQFAf/EAB0RAAICAgMBAAAAAAAAAAAAAAECAAMRITESQVH/2gAMAwEAAhEDEQA/ANFtdCVwfyI/vU/yU+N/vVkDqZdSx86FW3d3vBVPHjzV+JWTKbnfETQXkRG3U0R3MZkBMik/VWLxPy2o3/H/AFVmP9hrbVQDz3EuYO4m/r2FZ7m8RFJ3v6+6JbmwWdSN6ooqqU6Y4IHkmS5usR7U77rPY3LK7dTtaKKEZAjP+rnT/9k=" alt="アメリカンウォーターフロント マップ" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ddd;">
+                        <p style="margin-top: 10px; color: #6c757d; font-size: 0.9em;">アメリカンウォーターフロント お土産ショップマップ</p>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">マップ番号</th>
+                                <th style="width: 80%;">取扱商品</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>①</strong></td>
+                                <td>
+                                    <span class="feature-tag">🧸 ダッフィー専門</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>②</strong></td>
+                                <td>
+                                    <span class="feature-tag">👑 カチューシャ</span>
+                                    <span class="feature-tag">💍 身につけグッズ</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>③</strong></td>
+                                <td>
+                                    <span class="feature-tag">🎯 トイストーリー関連</span>
+                                    <span class="feature-tag">⭐ 限定商品多め</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>④</strong></td>
+                                <td>
+                                    <span class="feature-tag">🏰 タワー・オブ・テラー関連</span>
+                                    <span class="feature-tag">⭐ 限定商品多め</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">🧜‍♀️ マーメイドラグーン</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%;">店舗名</th>
+                                <th style="width: 65%;">取扱商品</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>マーメイドトレジャー</strong></td>
+                                <td>
+                                    <span class="feature-tag">🧜‍♀️ アリエル関連</span>
+                                    <span class="feature-tag">⭐ 限定商品多め</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">✨ ファンタジースプリングス</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%;">店舗名</th>
+                                <th style="width: 65%;">取扱商品</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ファンタジースプリングスギフト</strong></td>
+                                <td>
+                                    <span class="feature-tag">✨ ファンスプ限定</span>
+                                    <span class="feature-tag">🏨 ホテル併設</span>
+                                    <div class="location">※パークから入店可能</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="area-group">
+                    <div class="area-name">🕌 アラビアンコースト</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%;">店舗名</th>
+                                <th style="width: 65%;">取扱商品</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>アグラバーマーケットプレイス</strong></td>
+                                <td>
+                                    <span class="feature-tag">🧞 アラジン関連</span>
+                                    <span class="feature-tag">⭐ 限定商品多め</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="note">
+                    <strong>🎄 期間限定グッズについて</strong><br>
+                    • クリスマス限定商品などは<strong>エンポーリオ</strong>（メディテレーニアンハーバー）でも多く扱われます<br>
+                    • 20周年のグッズは<strong>ダッフィー系のお店にしかないもの</strong>もある可能性があります<br>
+                    <small>※期間限定商品は売り切れの可能性があるため、早めの購入がおすすめです</small>
+                </div>
+            </div>
+            
+            <!-- アトラクションセクション -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🎢</span>
+                    酔いにくい＆心臓に優しいアトラクション
+                </h2>
+                
+                <div class="note">
+                    <strong>💡 ポイント</strong><br>
+                    タワー・オブ・テラー以外で、心臓に優しく楽しめるアトラクションをまとめました。ショーやグリーティングは除外しています。
+                </div>
+                
+                <table class="attraction-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">アトラクション名</th>
+                            <th style="width: 20%;">待ち時間</th>
+                            <th style="width: 15%;">パス情報</th>
+                            <th style="width: 30%;">特徴・注意点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>トイ・ストーリー・マニア！</strong></td>
+                            <td>
+                                <div class="wait-time">40〜90分</div>
+                                <div class="wait-stars wait-level-4">★★★★☆</div>
+                            </td>
+                            <td><span class="pass-info">DPA</span></td>
+                            <td>シューティングゲーム、人気アトラクション</td>
+                        </tr>
+                        <tr>
+                            <td><strong>タートル・トーク</strong></td>
+                            <td>
+                                <div class="wait-time">5〜20分</div>
+                                <div class="wait-stars wait-level-1">★☆☆☆☆</div>
+                            </td>
+                            <td><span class="pass-info">FP</span></td>
+                            <td>座って楽しめるシアタータイプ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ヴェネツィアン・ゴンドラ</strong></td>
+                            <td>
+                                <div class="wait-time">5〜15分</div>
+                                <div class="wait-stars wait-level-1">★☆☆☆☆</div>
+                            </td>
+                            <td>-</td>
+                            <td>ゆったり優雅な船旅<br><small>※ショーの時間帯は休止、夕方早めがおすすめ</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>アクアトピア</strong></td>
+                            <td>
+                                <div class="wait-time">5〜20分</div>
+                                <div class="wait-stars wait-level-1">★☆☆☆☆</div>
+                            </td>
+                            <td>-</td>
+                            <td>水上ライド<br><small>※寒い時期は注意</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>マーメイドラグーン</strong></td>
+                            <td>
+                                <div class="wait-time">5〜15分</div>
+                                <div class="wait-stars wait-level-1">★☆☆☆☆</div>
+                            </td>
+                            <td>-</td>
+                            <td>屋内エリア、休憩にも最適</td>
+                        </tr>
+                        <tr>
+                            <td><strong>フランダーのフライングフィッシュコースター</strong></td>
+                            <td>
+                                <div class="wait-time">5〜20分</div>
+                                <div class="wait-stars wait-level-1">★☆☆☆☆</div>
+                            </td>
+                            <td>-</td>
+                            <td>子ども向けジェットコースター</td>
+                        </tr>
+                        <tr>
+                            <td><strong>スカットルのスクーター</strong></td>
+                            <td>
+                                <div class="wait-time">5〜20分</div>
+                                <div class="wait-stars wait-level-1">★☆☆☆☆</div>
+                            </td>
+                            <td>-</td>
+                            <td>フランダーと同じタイプのライド</td>
+                        </tr>
+                        <tr>
+                            <td><strong>シンドバッド・ストーリーブック・ヴォヤッジ</strong></td>
+                            <td>
+                                <div class="wait-time">5〜15分</div>
+                                <div class="wait-stars wait-level-1">★☆☆☆☆</div>
+                            </td>
+                            <td>-</td>
+                            <td>ゆったりボートライド、音楽が素敵</td>
+                        </tr>
+                        <tr>
+                            <td><strong>マジックランプシアター</strong></td>
+                            <td>
+                                <div class="wait-time">10〜30分</div>
+                                <div class="wait-stars wait-level-2">★★☆☆☆</div>
+                            </td>
+                            <td><span class="pass-info">FP</span></td>
+                            <td>シアタータイプ、ジーニーが登場</td>
+                        </tr>
+                        <tr>
+                            <td><strong>海底2万マイル</strong></td>
+                            <td>
+                                <div class="wait-time">10〜30分</div>
+                                <div class="wait-stars wait-level-2">★★☆☆☆</div>
+                            </td>
+                            <td><span class="pass-info">FP</span></td>
+                            <td>潜水艦ライド、幻想的</td>
+                        </tr>
+                        <tr>
+                            <td><strong>アナとエルサのフローズンジャーニー</strong></td>
+                            <td>
+                                <div class="wait-time">120〜180分</div>
+                                <div class="wait-stars wait-level-5">★★★★★</div>
+                            </td>
+                            <td><span class="pass-info">DPA</span></td>
+                            <td>ファンタジースプリングス、ボートライド</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ラプンツェルのランタンフェスティバル</strong></td>
+                            <td>
+                                <div class="wait-time">80〜140分</div>
+                                <div class="wait-stars wait-level-5">★★★★★</div>
+                            </td>
+                            <td><span class="pass-info">DPA</span></td>
+                            <td>ファンタジースプリングス、ボートライド</td>
+                        </tr>
+                        <tr>
+                            <td><strong>フェアリー・ティンカーベルのビジーバギー</strong></td>
+                            <td>
+                                <div class="wait-time">40〜70分</div>
+                                <div class="wait-stars wait-level-3">★★★☆☆</div>
+                            </td>
+                            <td><span class="pass-info">DPA</span></td>
+                            <td>ファンタジースプリングス、ジェットコースター<br><small>※激しさの度合いは不明</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="note">
+                    <strong>📝 凡例</strong><br>
+                    <span class="pass-info">FP</span> = ファストパスあり<br>
+                    <span class="pass-info">DPA</span> = ディズニー・プレミアアクセスあり（有料）<br><br>
+                    <strong>⏱️ 待ち時間の目安</strong><br>
+                    <span class="wait-stars wait-level-1">★☆☆☆☆</span> 5〜20分（ほぼ待たずに乗れる）<br>
+                    <span class="wait-stars wait-level-2">★★☆☆☆</span> 10〜30分（短め）<br>
+                    <span class="wait-stars wait-level-3">★★★☆☆</span> 40〜70分（通常）<br>
+                    <span class="wait-stars wait-level-4">★★★★☆</span> 40〜90分（やや長め）<br>
+                    <span class="wait-stars wait-level-5">★★★★★</span> 80〜180分（かなり長い、DPA推奨）<br>
+                    <small>※待ち時間は平日・休日や時間帯により変動します</small>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px; margin-top: 40px;">
+                <p style="font-size: 1.2em; color: #1e3c72; font-weight: bold;">
+                    🎉 素敵なディズニーシーの1日をお過ごしください！ 🎉
+                </p>
+                <p style="margin-top: 10px; color: #6c757d;">
+                    このガイドが皆様の楽しい思い出作りのお役に立てれば幸いです
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
